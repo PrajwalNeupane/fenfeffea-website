@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load wagtailcore_tags %}
+
+{% block content %}
+
+    {% image self.carousal1 fill-900x400 as carousal_img1 %}
+    {% image self.carousal2 fill-900x400 as carousal_img2 %}
+    {% image self.carousal3 fill-900x400 as carousal_img3 %}
+    {% image self.home_message_img fill-300x300 as home_message_img %}
+
+
+    <div class="bottom">
+   
+        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src={{carousal_img1.url}} class="d-block w-100" alt="...">
+                    <div class="container img-description">
+                        {{ self.carousal_text1 }}
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src={{carousal_img2.url}} class="d-block w-100" alt="...">
+                    <div class="container img-description">
+                        {{ self.carousal_text2 }}
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src={{carousal_img3.url}} class="d-block w-100" alt="...">
+                    <div class="container img-description">
+                        {{ self.carousal_text3 }}
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        <div class='container my-3'>
+            <div class="headline">
+                <span class="headline-text"> <h6>Message from the President</h6> </span>
+                <span class='empty-box'></span>
+            </div>
+
+            <div class="image-text-container">
+                <img class="home-img" src={{ home_message_img.url }}>
+                <span class='text-from-container'> 
+                    {{ self.home_message_content|richtext }}
+                    <button class="btn btn-info"> <a href='/about' class="text-white"> Read More </a> </button>
+                </span> 
+            </div>
+        </div>
+
+
+            {% comment %} <div class="headline">
+                <span class="headline-text"> <h6> Upcoming Events </h6> </span>
+                <span class='empty-box'></span>
+            </div> {% endcomment %}
+            <div class="container">
+                {% for block in page.content %}
+                    {% include_block block %}
+                {% endfor %}
+            </div>
+    </div>
+        
+{% endblock %}

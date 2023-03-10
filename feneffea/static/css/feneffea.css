@@ -1,0 +1,23 @@
+.body{
+    overflow: hidden;
+}
+
+.nav-link:hover{
+    border-bottom: 1px solid grey;
+    border-radius: 5px;
+}
+
+.carousel-item{
+    position: relative;
+    text-align: center;
+}
+
+.img-description{
+    position: absolute;
+    top: 50%;
+    left: 75%;
+    transform: translate(-50%, -50%);
+    font-size: 50px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load wagtailcore_tags %}
+
+{% block content %}
+<hr>
+    <div class='bottom'>
+        <div class="container">
+            {% image self.logo_image fill-100x70 as logo_img %}
+            {% for block in page.content %}
+                {% include_block block %}
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}
