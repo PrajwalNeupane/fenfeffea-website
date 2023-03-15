@@ -4,13 +4,65 @@
 
 
 {% block content %}
-<hr>
+    {% image self.home_message_img fill-300x300 as home_message_img %}
+
+<header class='my-5'>
+    <h1>About Us</h1>
+</header>
+  <section class="company-info">
+    <div class="content">
+      <h2>Our Company</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent fermentum velit ut augue bibendum, a tincidunt lorem ullamcorper. Sed ullamcorper urna vel porta lobortis. Proin luctus bibendum purus eget aliquet.
+      </p>
+    </div>
+    <img src={{logo_img.url}} alt="Company Image">
+  </section>
+  <section class="message">
+    <img src={{home_message_img.url}} alt="President Image">
+    <div class="content">
+      <h2>Message from the President</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sit amet semper quam. Integer auctor lectus vel mi aliquam, eget dapibus lacus efficitur. Suspendisse a tortor sed purus aliquam pellentesque.
+      </p>
+    </div>
+  </section>
+  <section class="board-members">
+    {% for block in page.content %}
+                    {% include_block block %}
+                {% endfor %}
+    {% comment %} <h2>Board Members</h2>
+    <ul>
+      <li>
+        <img src="member1_image.jpg" alt="Board Member 1">
+        <h3>Member 1</h3>
+        <p>Position</p>
+      </li>
+      <li>
+        <img src="member2_image.jpg" alt="Board Member 2">
+        <h3>Member 2</h3>
+        <p>Position</p>
+      </li>
+      <li>
+        <img src="member3_image.jpg" alt="Board Member 3">
+        <h3>Member 3</h3>
+        <p>Position</p>
+      </li>
+    </ul> {% endcomment %}
+  </section>
+
 <div class='bottom'>
-    <div class="container">
-        {% image self.logo_image fill-100x70 as logo_img %}
-        {% for block in page.content %}
-            {% include_block block %}
-        {% endfor %}
+    <div class = "text-box container mt-5" id='message-prez'>
+        <h3 class="my-5"><center>Message from the President</center></h3>
+        <center><img class="home-img mb-5" src={{ home_message_img.url }}></center>
+        <div class="pt-30">{{ self.home_message_content|richtext }}</div>
+
+    </div>
+    <div class = "text-box container mt-5" id='message-prez'>
+        <h3 class="my-5"><center>FENEFFEA</center></h3>
+        <center><img class="home-img mb-5" src={{ logo_img.url }}></center>
+        <div class="pt-30">{{ self.about_feneffea|richtext }}</div>
+
     </div>
 </div>
 {% endblock %}

@@ -9,9 +9,7 @@
     {% image self.carousal2 fill-900x400 as carousal_img2 %}
     {% image self.carousal3 fill-900x400 as carousal_img3 %}
     {% image self.home_message_img fill-300x300 as home_message_img %}
-
-
-    <div class="bottom">
+    {% image self.jumbotron_img fill-900x400 as jumborton_img %}
    
         <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
@@ -43,6 +41,29 @@
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
+        <div class='container jumbotron-container my-5'>
+            <div class="jumbotron p-5">
+                <h1 class="display-4">The Biggest Furniture Event in Nepal is Here!</h1>
+                <img class="my-5" width="100%" src={{jumborton_img.url}}>
+                <p class="lead">​​The Federation of Nepal Furniture and Furnishing Entrepreneurs Associations (FENEFFEA) is thrilled to announce International Furnitech B2B Expo 2023, the premier B2B furniture and furnishing expo supported by the Ministry of Industry and Commerce, Government of Nepal, to be held at Bhrikutimandap Exhibition Hall, Kathmandu,Nepal from 12-14 May 2023 (29-31 Baishakh 2080).
+.</p>
+                <hr class="my-4">
+                <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+                <p class="lead">
+                    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+                </p>
+            </div>
+        </div>
+            <div class="container jumbotron-container my-5 p-5">
+                <h1 class="display-4">Message from the President</h1>
+                <img class="my-5" width="50%" height="500px"src={{home_message_img.url}}>
+                <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+                <hr class="my-4">
+                <p>{{ self.home_message_content|richtext }}</p>
+                <p class="lead">
+                    <a class="btn btn-primary btn-lg" href="/about#message-prez" role="button">Learn more</a>
+                </p>
+            </div>
         <div class='container my-3'>
             <div class="headline">
                 <span class="headline-text"> <h6>Message from the President</h6> </span>
@@ -53,7 +74,7 @@
                 <img class="home-img" src={{ home_message_img.url }}>
                 <span class='text-from-container'> 
                     {{ self.home_message_content|richtext }}
-                    <button class="btn btn-info"> <a href='/about' class="text-white"> Read More </a> </button>
+                    <button class="btn btn-info"> <a href='/about#message-prez' class="text-white"> Read More </a> </button>
                 </span> 
             </div>
         </div>
@@ -68,6 +89,5 @@
                     {% include_block block %}
                 {% endfor %}
             </div>
-    </div>
         
 {% endblock %}

@@ -1,0 +1,63 @@
+{% extends 'base.html'%}
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load wagtailcore_tags %}
+
+{% block content%}
+{% image self.logo_image fill-900x400 as logo_img %}
+{% image self.visitor_img fill-900x400 as vis_img %}
+   <h1 class="ex_bg">Profile Of Visitors</h1>
+
+        <div class="ex_container">
+            <img src={{vis_img.url}} alt="Snow" style="width:50%;">
+            <div class="centered rectangle">
+                <h1>
+                    Who Should Visit?
+                </h1>
+            </div>
+          </div>
+          </center>
+
+        <table class="table table-striped container">
+            <tr class="hov">
+                <td class='mx-100'>&#x2022; Furniture Manufacturers</td>
+                <td>&#x2022; Saw Millers</td>
+            </tr>
+            <tr class="hov">
+                <td>&#x2022; Plywood & Particle Board Manufacturers</td>
+                <td>&#x2022; Craftsmen / Carpenters</td>
+            </tr>
+            <tr class="hov">
+                <td>&#x2022; Interior Designers</td>
+                <td>&#x2022; Interior Decorators</td>
+            </tr>
+            <tr class="hov">
+                <td>&#x2022; Timber Importers / Merchants</td>
+                <td>&#x2022; Manufacturers of Wood Based Products</td>
+            </tr>
+            <tr class="hov">
+                <td>&#x2022; Experts from Research Institutes</td>
+                <td>&#x2022; Forestry Officials</td>
+            </tr>
+            <tr class="hov">
+                <td>&#x2022; Traders</td>
+                <td>&#x2022; Hardware Manufacturer / Dealers</td>
+            </tr>
+            <tr class="hov">
+                <td>&#x2022; Government Officers</td>
+                <td>&#x2022; Investors</td>
+            </tr>
+            <tr class="hov">
+                <td>&#x2022; Fabricators</td>
+                <td>&#x2022; PMC's Consultants</td>
+            </tr>
+            <tr class="hov">
+                <td>&#x2022; Hoteliers</td>
+                <td>&#x2022; Corporate</td>
+            </tr>
+            <tr class="hov">
+                <td>&#x2022; PSU's</td>
+                <td></td>
+            </tr>
+        </table>
+
+{% endblock %}

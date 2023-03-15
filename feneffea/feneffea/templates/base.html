@@ -5,6 +5,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
+        <script src="{% static 'js/feneffea.js' %}" defer></script>
         <title>
             {% block title %}
             {% if page.seo_title %}{{ page.seo_title }}{% else %}{{ page.title }}{% endif %}
@@ -37,46 +38,54 @@
     <body class="{% block body_class %}{% endblock %}">
         {% wagtailuserbar %}
 
-        {% image self.logo_image fill-100x70 as logo_img %}
+        {% image self.logo_image fill-900x850 as logo_img %}
+        {% image self.instagram_img fill-100x70 as instagram %}
+        {% image self.twitter_img fill-100x70 as twitter %}
+        {% image self.email_img fill-100x70 as email %}
+
 
         <header>
-            <div class="container"> 
-                <nav class="navbar">
-                    <div class='logo-text-container'>
-                        <img src={{logo_img.url}}>
-                        <a href='/' class='nav-branding big-screen-text logo-text-right'> 
-                            <span>Nepal Furniture and</span>
-                            <span> Furnishing Association</span>
-                        </a>
-                    </div>
-                    <ul class="nav-menu">
-                        <li class="nav-item">
-                        <a href="/" class="nav-link">Home</a>
-                        </li>
-                        <li class="nav-item">
-                        <a href="/about" class="nav-link">About</a>
-                        </li>
-                        <li class="nav-item">
-                        <a href="#" class="nav-link">Activities</a>
-                        </li>
-                        <li class="nav-item">
-                        <a href="/members" class="nav-link">Members</a>
-                        </li>
-                        <li class="nav-item">
-                        <a href="#" class="nav-link">Publication</a>
-                        </li>
-                        <li class="nav-item">
-                        <a href="#" class="nav-link">Contact</a>
-                        </li>
-                    </ul>
-                    <div class="hamburger">
-                        <span class="bar"></span>
-                        <span class="bar"></span>
-                        <span class="bar"></span>
-                    </div>
-                </nav>
+            <div class='top-header mb-2'>
+                <img src={{logo_img.url}} alt="Logo" class="header-img">
+                <h2 class='lead' my-4> <center>Federation of Nepal Furniture and Furnishing Associations</center> </h2>
             </div>
-            </header>
+            </div>
+            <nav class="navbar">
+                <div class="brand">
+                <h1 class="brand-name"><a style="color:#f5f5f5" href="/">FENEFFEA</a></h1>
+                </div>
+                <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li class="dropdown">
+                    <a href="#">Members</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/members/founder-members/">Founder Member</a></li><hr>
+                        <li><a href="/members">General Member - District - Board Member</a></li><hr>
+                        <li><a href="#">Life Time Member</a></li><hr>
+                        <li><a href="#">Associate Member</a></li><hr>
+                        <li><a href="#">Honorary Members</a></li><hr>
+                        <li><a href="#">Patron Members</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Expo 2023</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/why-exhibit/">Why Exhibit?</a></li><hr>
+                        <li><a href="/why-exhibit/exhibitors-profile/">Exhibitor's Profile</a></li><hr>
+                        <li><a href="/why-exhibit/visitor-profile/">Visitor's Profile</a></li><hr>
+                        <li><a href="#">Register</a></li><hr>
+                    </ul>
+                </li>
+                <li><a href="#">Publications</a></li>
+                <li><a href="/contact">Contact us</a></li>
+                </ul>
+                <button class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+                </button>
+            </nav>
 
         {% block content %}
         {% endblock %}
@@ -92,84 +101,30 @@
          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
         <script src='../../static/js/feneffea.js'></script>
 
-    <div class='bottom'>
-        <!-- Footer -->
-        <footer class="page-footer font-small pt-4 footer-container">
 
-        <!-- Footer Links -->
-        <div class="container-fluid text-center text-md-left">
-
-            <!-- Grid row -->
-            <div class="row">
-
-            <!-- Grid column -->
-            <div class="col-md-6 mt-md-0 mt-3">
-
-                <!-- Content -->
-                <h5 class="text-uppercase">FENEFFEA</h5>
-                <p>Federation of Nepal Furniture and Furnishing Association.</p>
-
+         <footer>
+            <div class="footer-container">
+                <div class="footer-section">
+                    <h3>FENEFFEA</h3>
+                    <p>Join us in the Furnitech Expo 2023.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#" color="#f5f5f5">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p>1234 Example St, City, Country 12345</p>
+                    <p>Phone: +1 (555) 555-5555</p>
+                    <p>Email: info@example.com</p>
+                </div>
             </div>
-            <!-- Grid column -->
-
-            <hr class="clearfix w-100 d-md-none pb-3">
-
-            <!-- Grid column -->
-            <div class="col-md-3 mb-md-0 mb-3">
-
-                <!-- Links -->
-                <h5 class="text-uppercase">Know More</h5>
-
-                <ul class="list-unstyled">
-                <li>
-                    <a class="text-white" href="/members"><u>Members</u></a>
-                </li>
-                <li>
-                    <a class="text-white" href="/about"><u>About Us</u></a>
-                </li>
-                <li>
-                    <a class="text-white" href="#!"><u>Furnitech Expo 2023</u></a>
-                </li>
-                <li>
-                    <a class="text-white" href="#!"><u>Contact</u></a>
-                </li>
-                </ul>
-
-            </div>
-            <!-- Grid column -->
-
-            <!-- Grid column -->
-            <div class="col-md-3 mb-md-0 mb-3">
-
-                <!-- Links -->
-                <h5 class="text-uppercase">Links</h5>
-
-                <ul class="list-unstyled">
-                <li>
-                    <a class="text-white" href="#!"><u>Link 1</u></a>
-                </li>
-                <li>
-                    <a class="text-white" href="#!"><u>Link 2</u></a>
-                </li>
-                <li>
-                    <a class="text-white" href="#!"><u>Link 3</u></a>
-                </li>
-                <li>
-                    <a class="text-white" href="#!"><u>Link 4</u></a>
-                </li>
-                </ul>
-
-            </div>
-            <!-- Grid column -->
-
-            </div>
-            <!-- Grid row -->
-
-        </div>
-        <!-- Footer Links -->
-
         </footer>
-    </div>
     
     </body>
 </html>

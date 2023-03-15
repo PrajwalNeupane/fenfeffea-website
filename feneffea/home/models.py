@@ -5,7 +5,8 @@ from wagtail.fields import RichTextField
 from wagtail.admin.edit_handlers import FieldPanel, PageChooserPanel
 from wagtail.fields import StreamField
 from streams import blocks
-
+from wagtail.contrib.settings.models import BaseSetting, register_setting
+from wagtail.images.models import Image
 
 
 class HomePage(Page):
@@ -26,7 +27,15 @@ class HomePage(Page):
     carousal_text3 = models.CharField(max_length=100, blank=False, null=True)
     home_message_header = models.CharField(max_length=100, blank=False, null=True)
     home_message_content = RichTextField()
+
     logo_image = models.ForeignKey(
+        "wagtailimages.Image", 
+        null=True,
+        blank=False,
+        on_delete=models.SET_NULL,
+        related_name="+"
+    )
+    jumbotron_img = models.ForeignKey(
         "wagtailimages.Image", 
         null=True,
         blank=False,
@@ -71,6 +80,7 @@ class HomePage(Page):
 
     content_panels = Page.content_panels + [
         FieldPanel("logo_image"),
+        FieldPanel("jumbotron_img"),
         FieldPanel("carousal1"),
         FieldPanel("carousal_text1"),
         FieldPanel("carousal2"),

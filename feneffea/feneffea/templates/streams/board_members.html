@@ -1,22 +1,18 @@
 {% load wagtailimages_tags %}
 
 
-<div class="headline my-3">
-        <span class="headline-text "><h6> {{ self.card_group_title }}  </h6></span>
-        <span class='empty-box'></span>
-</div>
-
+<h2>{{ self.card_group_title }}</h2>
 <div class="card-container">
 
 {% for card in self.cards  %}
-    {% image card.image fill-500x400 as img %}
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src={{img.url}} alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">{{card.card_title}}</h5>
-                <p class="card-text">{{card.card_subtitle}}</p>
-                <a href="#" class="btn btn-primary">{{card.button_text}}</a>
-            </div>
-        </div>
+    {% image card.image fill-1500x1500 as img %}
+
+    <ul>
+      <li>
+        <img src={{img.url}} alt="Board Member 1">
+        <h3>{{card.card_title}}</h3>
+        <p>{{card.card_subtitle}}</p>
+      </li>
+    </ul>
 {% endfor %}
 </div>
