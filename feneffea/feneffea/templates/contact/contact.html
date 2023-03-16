@@ -1,8 +1,19 @@
 {% extends 'base.html' %}
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load wagtailcore_tags %}
 
 {% block content%}
+{% image self.contact_image fill-900x400 as con_img %}
+<div class="ex_container">
+    <img src={{con_img.url}} alt="Snow" style="width:50%;">
+    <div class="centered rectangle">
+        <h1>
+            Contact Us
+        </h1>
+    </div>
+</div>
 <div class="contact-container">
-    <h1>Contact Us</h1>
+    {% comment %} <h1>Register Now!</h1> {% endcomment %}
     <form id="contact-form">
       <label for="name">Name:</label>
       <input type="text" id="name" name="name" required>
@@ -12,12 +23,12 @@
       
       <label for="subject">Subject:</label>
       <input type="text" id="subject" name="subject" required>
-      
+
       <label for="message">Message:</label>
       <textarea id="message" name="message" rows="4" required></textarea>
-      
-      <button class='submit-button'>Send Message</button>
+      <button class='submit-button'>Submit</button>
     </form>
 </div>
+
 
 {% endblock %}

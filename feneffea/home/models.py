@@ -25,10 +25,43 @@ class HomePage(Page):
     carousal_text1 = models.CharField(max_length=100, blank=False, null=True)
     carousal_text2 = models.CharField(max_length=100, blank=False, null=True)
     carousal_text3 = models.CharField(max_length=100, blank=False, null=True)
+
+    panel_text1 = models.CharField(max_length=100, blank=False, null=True)
+    panel_text2 = models.CharField(max_length=100, blank=False, null=True)
+    panel_text3 = models.CharField(max_length=100, blank=False, null=True)
+
+    link1_url = models.CharField(max_length=100, blank=False, null=True)
+    link2_url = models.CharField(max_length=100, blank=False, null=True)
+    link3_url = models.CharField(max_length=100, blank=False, null=True)
+
     home_message_header = models.CharField(max_length=100, blank=False, null=True)
     home_message_content = RichTextField()
 
     logo_image = models.ForeignKey(
+        "wagtailimages.Image", 
+        null=True,
+        blank=False,
+        on_delete=models.SET_NULL,
+        related_name="+"
+    )
+    
+    panel_img1 = models.ForeignKey(
+        "wagtailimages.Image", 
+        null=True,
+        blank=False,
+        on_delete=models.SET_NULL,
+        related_name="+"
+    )
+    
+    panel_img2 = models.ForeignKey(
+        "wagtailimages.Image", 
+        null=True,
+        blank=False,
+        on_delete=models.SET_NULL,
+        related_name="+"
+    )
+    
+    panel_img3 = models.ForeignKey(
         "wagtailimages.Image", 
         null=True,
         blank=False,
@@ -91,7 +124,16 @@ class HomePage(Page):
         FieldPanel("home_message_img"),
         FieldPanel("home_message_header"),
         FieldPanel("home_message_content"),
-        FieldPanel("content")
+        FieldPanel("content"),
+        FieldPanel("panel_img1"),
+        FieldPanel("panel_img2"),
+        FieldPanel("panel_img3"),
+        FieldPanel("panel_text1"),
+        FieldPanel("link1_url"),
+        FieldPanel("panel_text2"),
+        FieldPanel("link2_url"),
+        FieldPanel("panel_text3"),
+        FieldPanel("link3_url"),
     ]
 
     class Meta:
