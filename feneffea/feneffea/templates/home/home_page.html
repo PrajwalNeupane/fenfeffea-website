@@ -13,6 +13,13 @@
     {% image self.panel_img2 fill-900x400 as p_img2 %}
     {% image self.panel_img3 fill-900x400 as p_img3 %}
 
+    {% image self.right_arrow fill-900x900 as right_arrow %}
+
+    {% image self.pub_panel_img1 fill-230x390 as pub_img1 %}
+    {% image self.pub_panel_img2 fill-230x390 as pub_img2 %}
+    {% image self.pub_panel_img3 fill-230x390 as pub_img3 %}
+    {% image self.pub_panel_img4 fill-230x390 as pub_img4 %}
+
     {% image self.home_message_img fill-300x300 as home_message_img %}
     {% image self.jumbotron_img fill-900x400 as jumborton_img %}
    
@@ -59,26 +66,26 @@
                 </p>
             </div>
         </div>
-        <header class='my-5'>
-            <h1>Furnitech B2B Expo 2023</h1>
+        <header class='pub-header my-5'>
+            <a href='/why-exhibit' class="pub-header"><h1 class='border-bottom'>Furnitech B2B Expo 2023</h1> <img src={{right_arrow.url}} class='r-arrow'></a>
         </header>
         <div class='panels'>
             <div class='panel'>
-                <div style="background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.8)), url({{p_img1.url}})" class='panel-image'></div>
-                <div class='caption'><a class="text-white" href={{self.link1_url}}>{{self.panel_text1}}</div>
+                <a href={{self.link1_url}}><div style="background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.8)), url({{p_img1.url}})" class='panel-image'></div></a>
+                <div class='caption'><a class="text-white" href={{self.link1_url}}><strong>{{self.panel_text1}}</strong></div>
             </div>
             <div class='panel'>
-                <div style="background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.8)),url({{p_img2.url}})" class='panel-image'></div>
-                <div class='caption'><a class="text-white" href={{self.link2_url}}>{{self.panel_text2}}</a></div>
+                <a href={{self.link2_url}}><div style="background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.8)),url({{p_img2.url}})" class='panel-image'></div></a>
+                <div class='caption'><a class="text-white" href={{self.link2_url}}><strong>{{self.panel_text2}}</strong></a></div>
             </div>
             <div class='panel'>
-                <div style="background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.8)),url({{p_img3.url}})" class='panel-image'></div>
-                <div class='caption'><a class="text-white" href={{self.link3_url}}>{{self.panel_text3}}</a></div>
+                <a href={{self.link3_url}}><div style="background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.8)),url({{p_img3.url}})" class='panel-image'></div></a>
+                <div class='caption'><a class="text-white" href={{self.link3_url}}><strong>{{self.panel_text3}}</strong></a></div>
             </div>
         </div>
             <div class="container jumbotron-container my-5 p-5">
                 <h1 class="display-4">Message from the President</h1>
-                <img class="my-5" width="40%" height="200px"src={{home_message_img.url}}>
+                <img class="my-5" width="20%" height="auto"src={{home_message_img.url}}>
                 <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
                 <hr class="my-4">
                 <p>{{ self.home_message_content|richtext }}</p>
@@ -86,5 +93,31 @@
                     <a class="btn btn-primary btn-lg" href="/about#message-prez" role="button">Learn more</a>
                 </p>
             </div>
+
+        <header class='my-5'>
+            <a href='/publications' class="pub-header"><h1 class='border-bottom'> Publications </h1> <img src={{right_arrow.url}} class='r-arrow'></a>
+        </header>
+        <div class="container pub-container my-5">
+            <hr>
+            <div class='pub-panel'>
+                <img src={{pub_img1.url}} class="pub-panel-img">
+                <span class='image-description'> {{self.pub_panel_text1}} </span>
+            </div>
+
+            <div class='pub-panel'>
+                <img src={{pub_img2.url}} class="pub-panel-img">
+                <span class='image-description'> {{self.pub_panel_text2}} </span>
+            </div>
+
+            <div class='pub-panel'>
+                <img src={{pub_img3.url}} class="pub-panel-img">
+                <span class='image-description'> {{self.pub_panel_text3}} </span>
+            </div>
+
+            <div class='pub-panel'>
+                <img src={{pub_img4.url}} class="pub-panel-img">
+                <span class='image-description'> {{self.pub_panel_text4}} </span>
+            </div>
+        </div>
         
 {% endblock %}

@@ -1,0 +1,14 @@
+{% load wagtailimages_tags %}
+
+
+{% for book in self.books  %}
+    {% image book.pubs_image fill-1500x1500 as img %}
+    <div class='pubs-container my-5'>
+        <img src={{img.url}} class='pub-img'>
+
+        <div class='right-pub'>
+            <h3 class='pub-title mb-3'>{{book.pubs_title}}</h3>
+            <div class='px-6'>{{book.pubs_detail}}</div>
+        </div>
+    </div>
+{% endfor %}

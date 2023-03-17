@@ -4,13 +4,11 @@
 
 {% block content%}
 {% image self.contact_image fill-900x400 as con_img %}
+
+ <h1 class="ex_bg">Contact Us</h1>
+
 <div class="ex_container">
     <img src={{con_img.url}} alt="Snow" style="width:50%;">
-    <div class="centered rectangle">
-        <h1>
-            Contact Us
-        </h1>
-    </div>
 </div>
 <div class="contact-container">
     {% comment %} <h1>Register Now!</h1> {% endcomment %}

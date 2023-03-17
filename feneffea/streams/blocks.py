@@ -20,3 +20,21 @@ class Cards(blocks.StructBlock):
         template = "streams/board_members.html"
         icon = "placeholder"
         label = "Add Card"
+
+class Pubs(blocks.StructBlock):
+
+
+    books = blocks.ListBlock(
+        blocks.StructBlock(
+            [
+                ("pubs_image", ImageChooserBlock(required=True)),
+                ("pubs_title", blocks.CharBlock(required=True, max_length=100)),
+                ("pubs_detail", blocks.TextBlock(required=True)),
+            ]
+        )
+    )
+
+    class Meta:
+        template = "streams/pubs.html"
+        icon = "placeholder"
+        label = "Add Publication"

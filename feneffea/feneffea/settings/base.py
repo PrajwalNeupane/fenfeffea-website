@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     "whyexhibit",
     "exhibitorprof",
     'vistor',
+    "publication",
     "wagtail.contrib.forms",
     "wagtail.contrib.redirects",
     "wagtail.embeds",

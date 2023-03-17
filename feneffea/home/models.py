@@ -34,6 +34,11 @@ class HomePage(Page):
     link2_url = models.CharField(max_length=100, blank=False, null=True)
     link3_url = models.CharField(max_length=100, blank=False, null=True)
 
+    pub_panel_text1 = models.CharField(max_length=100, blank=False, null=True)
+    pub_panel_text2 = models.CharField(max_length=100, blank=False, null=True)
+    pub_panel_text3 = models.CharField(max_length=100, blank=False, null=True)
+    pub_panel_text4 = models.CharField(max_length=100, blank=False, null=True)
+
     home_message_header = models.CharField(max_length=100, blank=False, null=True)
     home_message_content = RichTextField()
 
@@ -61,6 +66,38 @@ class HomePage(Page):
         related_name="+"
     )
     
+    pub_panel_img3 = models.ForeignKey(
+        "wagtailimages.Image", 
+        null=True,
+        blank=False,
+        on_delete=models.SET_NULL,
+        related_name="+"
+    )
+
+    pub_panel_img1 = models.ForeignKey(
+        "wagtailimages.Image", 
+        null=True,
+        blank=False,
+        on_delete=models.SET_NULL,
+        related_name="+"
+    )
+    
+    pub_panel_img2 = models.ForeignKey(
+        "wagtailimages.Image", 
+        null=True,
+        blank=False,
+        on_delete=models.SET_NULL,
+        related_name="+"
+    )
+
+    pub_panel_img4 = models.ForeignKey(
+        "wagtailimages.Image", 
+        null=True,
+        blank=False,
+        on_delete=models.SET_NULL,
+        related_name="+"
+    )
+    
     panel_img3 = models.ForeignKey(
         "wagtailimages.Image", 
         null=True,
@@ -68,6 +105,7 @@ class HomePage(Page):
         on_delete=models.SET_NULL,
         related_name="+"
     )
+
     jumbotron_img = models.ForeignKey(
         "wagtailimages.Image", 
         null=True,
@@ -103,10 +141,11 @@ class HomePage(Page):
         on_delete=models.SET_NULL,
         related_name="+"
     )
-    banner_cta = models.ForeignKey(
-        "wagtailcore.Page",
+
+    right_arrow = models.ForeignKey(
+        "wagtailimages.Image", 
         null=True,
-        blank=True,
+        blank=False,
         on_delete=models.SET_NULL,
         related_name="+"
     )
@@ -120,7 +159,6 @@ class HomePage(Page):
         FieldPanel("carousal_text2"),
         FieldPanel("carousal3"),
         FieldPanel("carousal_text3"),
-        PageChooserPanel("banner_cta"),
         FieldPanel("home_message_img"),
         FieldPanel("home_message_header"),
         FieldPanel("home_message_content"),
@@ -134,6 +172,15 @@ class HomePage(Page):
         FieldPanel("link2_url"),
         FieldPanel("panel_text3"),
         FieldPanel("link3_url"),
+        FieldPanel("pub_panel_img1"),
+        FieldPanel("pub_panel_text1"),
+        FieldPanel("pub_panel_img2"),
+        FieldPanel("pub_panel_text2"),
+        FieldPanel("pub_panel_img3"),
+        FieldPanel("pub_panel_text3"),
+        FieldPanel("pub_panel_img4"),
+        FieldPanel("pub_panel_text4"),
+        FieldPanel("right_arrow"),
     ]
 
     class Meta:
