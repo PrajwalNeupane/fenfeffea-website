@@ -33,8 +33,9 @@ INSTALLED_APPS = [
     "registration",
     "whyexhibit",
     "exhibitorprof",
-    'vistor',
+    "vistor",
     "publication",
+    "registration",
     "wagtail.contrib.forms",
     "wagtail.contrib.redirects",
     "wagtail.embeds",
@@ -48,6 +49,8 @@ INSTALLED_APPS = [
     "wagtail",
     "modelcluster",
     "taggit",
+    "captcha",
+    "wagtailcaptcha",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -173,3 +176,9 @@ WAGTAILSEARCH_BACKENDS = {
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
 WAGTAILADMIN_BASE_URL = "http://example.com"
+
+
+# Recaptcha Settings
+RECAPTCHA_PUBLIC_KEY = "6LeTCVYnAAAAAPrxt3NoDEkZAtOmMDVdTJ185ccC"
+RECAPTCHA_PRIVATE_KEY = "6LeTCVYnAAAAALysSO9qfZ0R532Gpb4hvpnv_SdO"
+NOCAPTCHA = True

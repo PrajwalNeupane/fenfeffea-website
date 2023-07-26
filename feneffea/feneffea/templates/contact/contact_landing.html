@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load wagtailcore_tags %}
+
+{% block content%}
+{% image self.contact_image fill-900x400 as con_img %}
+
+ <h1 class="ex_bg">Thank You</h1>
+
+<div class="ex_container">
+    <img src={{con_img.url}} alt="Snow" style="width:50%;">
+   
+</div>
+<div class="contact-container">
+   <p class='form-intro'>
+        {{self.thank_you_text|richtext}}
+    </p>
+</div>
+
+
+{% endblock %}

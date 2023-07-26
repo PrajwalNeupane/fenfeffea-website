@@ -2,7 +2,7 @@ from django.db import models
 
 from wagtail.models import Page
 from wagtail.fields import RichTextField
-from wagtail.admin.edit_handlers import FieldPanel, PageChooserPanel
+from wagtail.admin.panels import FieldPanel, PageChooserPanel
 from wagtail.fields import StreamField
 from streams import blocks
 from wagtail.contrib.settings.models import BaseSetting, register_setting
@@ -10,16 +10,15 @@ from wagtail.images.models import Image
 
 
 class HomePage(Page):
-    """ home page model. """
+    """home page model."""
+
     templates = "home/home_page.html"
     max_count = 1
 
     content = StreamField(
-        [
-        ("event_listings", blocks.Cards())
-        ],
-        null = True,
-        blank = True,
+        [("event_listings", blocks.Cards())],
+        null=True,
+        blank=True,
     )
 
     carousal_text1 = models.CharField(max_length=100, blank=False, null=True)
@@ -43,116 +42,121 @@ class HomePage(Page):
     home_message_content = RichTextField()
 
     logo_image = models.ForeignKey(
-        "wagtailimages.Image", 
+        "wagtailimages.Image",
         null=True,
         blank=False,
         on_delete=models.SET_NULL,
-        related_name="+"
+        related_name="+",
     )
-    
+
     panel_img1 = models.ForeignKey(
-        "wagtailimages.Image", 
+        "wagtailimages.Image",
         null=True,
         blank=False,
         on_delete=models.SET_NULL,
-        related_name="+"
+        related_name="+",
     )
-    
+
     panel_img2 = models.ForeignKey(
-        "wagtailimages.Image", 
+        "wagtailimages.Image",
         null=True,
         blank=False,
         on_delete=models.SET_NULL,
-        related_name="+"
+        related_name="+",
     )
-    
+
     pub_panel_img3 = models.ForeignKey(
-        "wagtailimages.Image", 
+        "wagtailimages.Image",
         null=True,
         blank=False,
         on_delete=models.SET_NULL,
-        related_name="+"
+        related_name="+",
     )
 
     pub_panel_img1 = models.ForeignKey(
-        "wagtailimages.Image", 
+        "wagtailimages.Image",
         null=True,
         blank=False,
         on_delete=models.SET_NULL,
-        related_name="+"
+        related_name="+",
     )
-    
+
     pub_panel_img2 = models.ForeignKey(
-        "wagtailimages.Image", 
+        "wagtailimages.Image",
         null=True,
         blank=False,
         on_delete=models.SET_NULL,
-        related_name="+"
+        related_name="+",
     )
 
     pub_panel_img4 = models.ForeignKey(
-        "wagtailimages.Image", 
+        "wagtailimages.Image",
         null=True,
         blank=False,
         on_delete=models.SET_NULL,
-        related_name="+"
+        related_name="+",
     )
-    
+
     panel_img3 = models.ForeignKey(
-        "wagtailimages.Image", 
+        "wagtailimages.Image",
         null=True,
         blank=False,
         on_delete=models.SET_NULL,
-        related_name="+"
+        related_name="+",
     )
 
     jumbotron_img = models.ForeignKey(
-        "wagtailimages.Image", 
+        "wagtailimages.Image",
         null=True,
         blank=False,
         on_delete=models.SET_NULL,
-        related_name="+"
+        related_name="+",
     )
     carousal1 = models.ForeignKey(
-        "wagtailimages.Image", 
+        "wagtailimages.Image",
         null=True,
         blank=False,
         on_delete=models.SET_NULL,
-        related_name="+"
+        related_name="+",
     )
     carousal2 = models.ForeignKey(
-        "wagtailimages.Image", 
+        "wagtailimages.Image",
         null=True,
         blank=False,
         on_delete=models.SET_NULL,
-        related_name="+"
+        related_name="+",
     )
     carousal3 = models.ForeignKey(
-        "wagtailimages.Image", 
+        "wagtailimages.Image",
         null=True,
         blank=False,
         on_delete=models.SET_NULL,
-        related_name="+"
+        related_name="+",
     )
     home_message_img = models.ForeignKey(
-        "wagtailimages.Image", 
+        "wagtailimages.Image",
         null=True,
         blank=False,
         on_delete=models.SET_NULL,
-        related_name="+"
+        related_name="+",
     )
 
+    img_gallery = StreamField([("imgs", blocks.ImgGallery())], null=True, blank=True)
+
+    carousel = StreamField([("imgs", blocks.MainCarousel())], null=True, blank=True)
+
     right_arrow = models.ForeignKey(
-        "wagtailimages.Image", 
+        "wagtailimages.Image",
         null=True,
         blank=False,
         on_delete=models.SET_NULL,
-        related_name="+"
+        related_name="+",
     )
 
     content_panels = Page.content_panels + [
         FieldPanel("logo_image"),
         FieldPanel("jumbotron_img"),
+        FieldPanel("carousel"),
         FieldPanel("carousal1"),
         FieldPanel("carousal_text1"),
         FieldPanel("carousal2"),
@@ -181,9 +185,9 @@ class HomePage(Page):
         FieldPanel("pub_panel_img4"),
         FieldPanel("pub_panel_text4"),
         FieldPanel("right_arrow"),
+        FieldPanel("img_gallery"),
     ]
 
     class Meta:
-
         verbose_name = "Home Pages"
-        verbose_name_plural = 'Home Pages'
+        verbose_name_plural = "Home Pages"

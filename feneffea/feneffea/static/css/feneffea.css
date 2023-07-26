@@ -489,6 +489,8 @@ footer {
 
 /* footer end */
 
+/* owl carousel */
+
 /* contact form */
 
 .contact-container {
@@ -498,6 +500,13 @@ footer {
   padding: 30px;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.helptext{
+  color: gray;
+  font-size: 12px;
+  position: relative;
+  top: -20px
 }
 
 h1 {
@@ -517,6 +526,8 @@ input, textarea {
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
+  position: relative;
+  margin-top: 3px;
 }
 
 button {
@@ -711,6 +722,8 @@ ul li h2, ul li p {
     text-align: center;
   }
 
+
+
 .wood-img{
   border-radius: 10px;
 }
@@ -735,7 +748,7 @@ ul li h2, ul li p {
 .ex_container {
     position: relative;
     text-align: center;
-    color: white;
+    /* color: white; */
     margin-bottom: 2rem;
     padding: 2rem 1rem;  
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -748,6 +761,20 @@ ul li h2, ul li p {
     left: 50%;
     transform: translate(-50%, -50%);
   }
+
+
+ul,li { list-style-type: none;
+        list-style-position:inside;
+        margin:0;
+        padding:0; }
+
+.board-history-img{
+  width: 200px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 
 @media (max-width: 500px) {
@@ -849,7 +876,7 @@ ul li h2, ul li p {
   }
 
   .dropdown:hover .dropdown-menu {
-    display: none;
+    display: block;
   }
 
   .dropdown-menu {
@@ -870,7 +897,6 @@ ul li h2, ul li p {
     border:none;
     border-bottom: 2px solid #5F8D3A;
   }
-
 
   .headline-container{
       margin: 5px 20px 5px 20px;

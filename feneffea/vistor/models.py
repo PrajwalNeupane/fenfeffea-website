@@ -1,31 +1,35 @@
 from django.db import models
-from wagtail.models import Page 
-from wagtail.admin.edit_handlers import FieldPanel
+from wagtail.models import Page
+from wagtail.admin.panels import FieldPanel
+
 
 class Visitor(Page):
-    template = 'visitor/visitor.html'
+    template = "visitor/visitor.html"
 
     logo_image = models.ForeignKey(
-        "wagtailimages.Image", 
+        "wagtailimages.Image",
         null=True,
         blank=False,
         on_delete=models.SET_NULL,
-        related_name="+"
+        related_name="+",
     )
 
     visitor_img = models.ForeignKey(
-        "wagtailimages.Image", 
+        "wagtailimages.Image",
         null=True,
         blank=False,
         on_delete=models.SET_NULL,
-        related_name="+"
+        related_name="+",
     )
 
     content_panels = Page.content_panels + [
-        FieldPanel('logo_image'),
-        FieldPanel('visitor_img'),
+        FieldPanel("logo_image"),
+        FieldPanel("visitor_img"),
     ]
+
     class Meta:
-        verbose_name = 'visitor'
-        verbose_name_plural = 'visitors'
+        verbose_name = "visitor"
+        verbose_name_plural = "visitors"
+
+
 # Create your models here.

@@ -7,26 +7,34 @@
 <div class="ex_container">
     <img src={{reg_img.url}} alt="Snow" style="width:50%;">
     <div class="centered rectangle">
-        <h1>
-            Register Now!
-        </h1>
+        <p class='form-intro'>
+            {{self.intro|richtext}}
+        </p>
     </div>
 </div>
 <div class="contact-container">
     {% comment %} <h1>Register Now!</h1> {% endcomment %}
-    <form id="contact-form">
-      <label for="name">Name:</label>
+    <form action="{% pageurl page %}" method='POST'>
+      
+      {% csrf_token %}
+
+      {{ form.as_ul }}
+
+      <input type='submit'>
+
+
+      {% comment %} <label for="name">Name:</label>
       <input type="text" id="name" name="name" required>
       
       <label for="email">Email:</label>
       <input type="email" id="email" name="email" required>
       
-      <label for="subject">Organization Name:</label>
+      <label for="subject">Subject:</label>
       <input type="text" id="subject" name="subject" required>
 
-      <label for="message">Organization Details:</label>
+      <label for="message">Message:</label>
       <textarea id="message" name="message" rows="4" required></textarea>
-      <button class='submit-button'>Register</button>
+      <button class='submit-button'>Submit</button> {% endcomment %}
     </form>
 </div>
 

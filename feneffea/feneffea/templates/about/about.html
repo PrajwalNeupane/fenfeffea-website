@@ -16,9 +16,17 @@
 
 <section class="board-members mt-5">
   {% for block in page.content %}
-                  {% include_block block %}
-              {% endfor %}
+        {% include_block block %}
+    {% endfor %}
 </section>
+
+<section class='accordion'>
+  {% for block in page.accordion %}
+        {% include_block block %}
+  {% endfor %}
+</section>
+
+
 <div class = "text-box container my-5" id='message-prez'>
     <h3 class="my-5"><center>FENEFFEA</center></h3>
     <center><img class="home-img mb-5" src={{ logo_img.url }}></center>
