@@ -30,7 +30,6 @@ INSTALLED_APPS = [
     "members",
     "streams",
     "contactform",
-    "registration",
     "whyexhibit",
     "exhibitorprof",
     "vistor",
